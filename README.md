@@ -1,10 +1,5 @@
 # Schnapserl Management Software Api
 
-## Endpoints
-
-### Article
-GET: Get Article by specific Article Id - 
-
 
 ![OpenApiDocumentation.png](OpenApiDocumentation.png)
 
