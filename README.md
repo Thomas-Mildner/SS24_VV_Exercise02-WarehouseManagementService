@@ -1,4 +1,5 @@
 # Schnapserl Management Software Api
+[![ci](https://github.com/Thomas-Mildner/SS24_VV_Exercise02-WarehouseManagementService/actions/workflows/main.yml/badge.svg)](https://github.com/Thomas-Mildner/SS24_VV_Exercise02-WarehouseManagementService/actions/workflows/main.yml)
 
 This repository will be used in Exercise02 in SS24.
 The Stock Management Srvice manages the article and local stock data and is consumed by the OrderService.
