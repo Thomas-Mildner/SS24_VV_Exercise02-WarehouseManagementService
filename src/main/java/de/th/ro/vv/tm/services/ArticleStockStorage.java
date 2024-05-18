@@ -6,18 +6,21 @@ import de.th.ro.vv.tm.models.Article;
 import de.th.ro.vv.tm.models.Stock;
 import jakarta.inject.Singleton;
 
+import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @Singleton
 public class ArticleStockStorage {
 
-    private Cache<Integer, Article> articleCache;
+    private final Cache<Integer, Article> articleCache;
+    private final Dictionary<Integer, Article> articleStorage = new Hashtable<>();
 
     public ArticleStockStorage(){
         articleCache = Caffeine.newBuilder()
                 .maximumSize(100)
-                .expireAfterAccess(10, TimeUnit.MINUTES)
+                .expireAfterAccess(5, TimeUnit.MINUTES)
                 .build();
 
         initializeCacheWithDummyArticles();
@@ -30,21 +33,19 @@ public class ArticleStockStorage {
                 "Flötzinger Radler"
         );
         for (int i = 0; i < drinks.toArray().length; i++) {
-            articleCache.put(i, new Article(i, drinks.get(i), new Stock(i, 0, null)));
+            var article = new Article(i, drinks.get(i), new Stock(i, 0, null));
+            this.articleStorage.put(i, article);
+            articleCache.put(i, article);
         }
     }
 
     public Article getArticleById(int articleId) {
-        Article cachedArticle = articleCache.getIfPresent(articleId);
-        if (cachedArticle != null) {
-            return cachedArticle;
-        }
+        var article =  articleCache.getIfPresent(articleId);
+        if(article != null)
+            return article;
 
-        // if not found in cache - no stock available
-        Article article = new Article(articleId, "Article" + articleId, new Stock(articleId, 0, null));
-        articleCache.put(articleId, article);
-
-        return article;
+        //no current stock value in 'database'
+        return this.articleStorage.get(articleId);
     }
 
 

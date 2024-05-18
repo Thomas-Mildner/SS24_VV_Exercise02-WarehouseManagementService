@@ -1,6 +1,8 @@
 package de.th.ro.vv.tm.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import java.util.Objects;
@@ -8,6 +10,9 @@ import java.util.Objects;
 @Schema(name = "ArticleModel", description = "Article Data Model")
 public final class Article {
     @JsonProperty
+    @Min(value = 1, message = "ArticleId must be at least 1")
+    @Max(value = 10, message = "ArticleId must be at most 10")
+    @Schema(description = "ArticleId value", minimum = "1", maximum = "10")
     private final int ArticleId;
 
     @JsonProperty

@@ -1,11 +1,11 @@
 package de.th.ro.vv.tm.services;
 
-import de.th.ro.vv.tm.models.Article;
 import de.th.ro.vv.tm.models.Stock;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 
-import java.util.List;
+import java.time.Instant;
+import java.util.Date;
 
 
 @RequestScoped()
@@ -15,12 +15,7 @@ public class StockService {
 
     public boolean updateStock(Stock stock) {
         var existingStock = stockStorage.getStockById(stock.ArticleId());
-       if(existingStock == null)
-           return false;
-
-
-       return true;
-
+        return stockStorage.updateStockForArticleId(stock.ArticleId(), stock.Stock());
     }
 
     public Stock getArticleStock(int articleId) {
