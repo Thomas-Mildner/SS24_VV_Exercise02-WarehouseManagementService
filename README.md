@@ -1,4 +1,13 @@
-# schnapserl-stockmanagement
+# Schnapserl Management Software Api
+
+## Endpoints
+
+### Article
+GET: Get Article by specific Article Id - 
+
+
+![OpenApiDocumentation.png](OpenApiDocumentation.png)
+
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 

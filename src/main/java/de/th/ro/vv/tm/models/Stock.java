@@ -18,7 +18,7 @@ public final class Stock {
     @Min(value = 1, message = "Stock must be at least 1")
     @Max(value = 10, message = "Stock must be at most 10")
     @Schema(description = "Stock value", minimum = "1", maximum = "10")
-    private final int Stock;
+    private int Stock;
 
     public Stock(int ArticleId, int Stock, Date NextDeliveryDate) {
         this.ArticleId = ArticleId;
@@ -33,6 +33,9 @@ public final class Stock {
         return Stock;
     }
 
+    public void setStock(@Min(value = 1, message = "Stock must be at least 1") @Max(value = 10, message = "Stock must be at most 10") int stock) {
+        Stock = stock;
+    }
 
     @Override
     public boolean equals(Object obj) {

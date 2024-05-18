@@ -1,17 +1,16 @@
 package de.th.ro.vv.tm.services;
 
 import de.th.ro.vv.tm.models.Stock;
+import de.th.ro.vv.tm.persistence.StockStorage;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
-
-import java.time.Instant;
-import java.util.Date;
 
 
 @RequestScoped()
 public class StockService {
 
-    @Inject ArticleStockStorage stockStorage;
+    @Inject
+    StockStorage stockStorage;
 
     public boolean updateStock(Stock stock) {
         var existingStock = stockStorage.getStockById(stock.ArticleId());
