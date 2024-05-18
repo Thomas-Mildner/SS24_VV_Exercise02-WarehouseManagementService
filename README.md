@@ -1,5 +1,21 @@
 # Schnapserl Management Software Api
 
+This repository will be used in Exercise02 in SS24.
+The Stock Management Srvice manages the article and local stock data and is consumed by the OrderService.
+
+To show a new and more modern framework for a microservice in addition to SpringBoot, this service is implemented using the Quarkus framework.
+
+For more information about quarkus, see the linked documentation.
+
+## Usage
+
+```
+docker run -p 8080:8080 vvthromildner/ss24_exercise02_stockmanagementapi:latest
+```
+
+Service should be available via http://localhost:8080/q/swagger-ui
+
+## Endpoints
 
 ![OpenApiDocumentation.png](OpenApiDocumentation.png)
 
