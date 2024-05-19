@@ -65,7 +65,7 @@ public class StockResource {
     )
     public Response updateStock(Stock stock){
 
-        if(stock.ArticleId() < 0 || stock.ArticleId() > 10){
+        if(stock.getArticleId() < 1 || stock.getArticleId() > 10){
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
 

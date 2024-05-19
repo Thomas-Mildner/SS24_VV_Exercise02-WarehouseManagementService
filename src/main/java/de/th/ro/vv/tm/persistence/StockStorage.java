@@ -27,10 +27,12 @@ public class StockStorage {
 
     public boolean updateStockForArticleId(int articleId, int updatedStock){
         var existingStock = getStockById(articleId);
-        if(existingStock == null)
-            return false;
-
-        existingStock.setStock(updatedStock);
+        if(existingStock == null){
+            existingStock = new Stock(articleId, updatedStock);
+        }
+        else{
+            existingStock.setStock(existingStock.getStock() + updatedStock);
+        }
         stockCache.put(articleId, existingStock);
         return true;
 

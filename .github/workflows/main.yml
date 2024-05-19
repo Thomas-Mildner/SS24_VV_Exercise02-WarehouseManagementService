@@ -27,7 +27,7 @@ jobs:
       - name: Set Docker image name
         run: echo "DOCKER_IMAGE_NAME=vvthromildner/ss24_exercise02_stockmanagementapi" >> $GITHUB_ENV
       - name: Set docker image tag env
-        run: echo "DOCKER_TAG_VERSION=$(echo $GITHUB_RUN_NUMBER)" >> $GITHUB_ENV
+        run: echo "DOCKER_TAG_VERSION=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
