@@ -11,6 +11,16 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v2
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+            distribution: 'adopt'
+            java-version: '17'
+
+      - name: Build with Gradle
+        run: ./gradlew build
+
       - name: Set Docker image name
         run: echo "DOCKER_IMAGE_NAME=vvthromildner/ss24_exercise02_stockmanagementapi" >> $GITHUB_ENV
       - name: Set docker image tag env
