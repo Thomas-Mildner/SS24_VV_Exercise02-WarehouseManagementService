@@ -2,7 +2,7 @@
 [![ci](https://github.com/Thomas-Mildner/SS24_VV_Exercise02-WarehouseManagementService/actions/workflows/main.yml/badge.svg)](https://github.com/Thomas-Mildner/SS24_VV_Exercise02-WarehouseManagementService/actions/workflows/main.yml)
 
 This repository will be used in Exercise02 in SS24.
-The Stock Management Srvice manages the article and stock data and is consumed by the OrderService.
+The Stock Management Service manages the article and stock data and is consumed by the OrderService.
 
 To show a new and more modern framework for a microservice in addition to SpringBoot, this service is implemented using the Quarkus framework.
 
