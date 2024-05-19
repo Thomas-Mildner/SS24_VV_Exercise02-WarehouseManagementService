@@ -11,12 +11,10 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v2
-      -
-        name: Set docker image name env
-        run: echo ::set-env name=DOCKER_IMAGE_NAME::vvthromildner/ss24_exercise02_stockmanagementapi
-      -
-        name: Set docker image tag env
-        run: echo ::set-env name=DOCKER_TAG_VERSION::$(echo $GITHUB_RUN_NUMBER)
+      - name: Set Docker image name
+        run: echo "DOCKER_IMAGE_NAME=vvthromildner/ss24_exercise02_stockmanagementapi" >> $GITHUB_ENV
+      - name: Set docker image tag env
+        run: echo "DOCKER_TAG_VERSION=$(echo $GITHUB_RUN_NUMBER)" >> $GITHUB_ENV
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -28,9 +26,8 @@ jobs:
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_API_KEY }}
-      -
-        name: Build and push
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build and push
         uses: docker/build-push-action@v2
         with:
           context: .
@@ -39,5 +36,4 @@ jobs:
           tags: |
             ${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_TAG_VERSION }}
             ${{ env.DOCKER_IMAGE_NAME }}:latest
-
   
