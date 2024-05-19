@@ -20,7 +20,7 @@ public final class Stock {
     @Schema(description = "Stock value", minimum = "1", maximum = "10")
     private int Stock;
 
-    public Stock(int ArticleId, int Stock, Date NextDeliveryDate) {
+    public Stock(int ArticleId, int Stock) {
         this.ArticleId = ArticleId;
         this.Stock = Stock;
     }
@@ -29,7 +29,9 @@ public final class Stock {
         return ArticleId;
     }
 
-    public int Stock() {
+    @Min(value = 1, message = "Stock must be at least 1")
+    @Max(value = 10, message = "Stock must be at most 10")
+    public int getStock() {
         return Stock;
     }
 
@@ -57,6 +59,5 @@ public final class Stock {
                 "ArticleId=" + ArticleId + ", " +
                 "Stock=" + Stock + ", " + ']';
     }
-
 
 }

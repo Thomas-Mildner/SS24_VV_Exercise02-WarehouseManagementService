@@ -13,8 +13,7 @@ public class StockService {
     StockStorage stockStorage;
 
     public boolean updateStock(Stock stock) {
-        var existingStock = stockStorage.getStockById(stock.ArticleId());
-        return stockStorage.updateStockForArticleId(stock.ArticleId(), stock.Stock());
+        return stockStorage.updateStockForArticleId(stock.ArticleId(), stock.getStock());
     }
 
     public Stock getArticleStock(int articleId) {

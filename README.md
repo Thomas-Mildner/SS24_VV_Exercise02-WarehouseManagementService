@@ -1,7 +1,7 @@
 # Schnapserl Management Software Api
 
 This repository will be used in Exercise02 in SS24.
-The Stock Management Srvice manages the article and local stock data and is consumed by the OrderService.
+The Stock Management Srvice manages the article and stock data and is consumed by the OrderService.
 
 To show a new and more modern framework for a microservice in addition to SpringBoot, this service is implemented using the Quarkus framework.
 
