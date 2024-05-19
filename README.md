@@ -14,7 +14,7 @@ For more information about quarkus, see the linked documentation.
 docker run -p 8080:8080 vvthromildner/ss24_exercise02_stockmanagementapi:latest
 ```
 
-Service should be available via http://localhost:8080/q/swagger-ui
+Service should be available via [http://localhost:8080/swagger-ui](http://localhost:8080/swagger-ui/)
 
 ## Endpoints
 
